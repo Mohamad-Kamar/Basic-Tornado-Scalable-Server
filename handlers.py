@@ -8,12 +8,12 @@ class basicRequestHandler(tornado.web.RequestHandler):
 
 class pikaRequestHandler(tornado.web.RequestHandler):
     def get(self,message):
-        execute(f"Sent {message}")
+        execute(f"{message}")
 
 class elasticRequestHandler(tornado.web.RequestHandler):
     def get(self, id):
-        requests.get(f"http://localhost:5601/controller/_doc/{id}")
-        self.write("Querying tweet with id " + id)
+        response =requests.get(f"http://localhost:5601/controller/_doc/{id}")
+        self.write(response)
 
 class queryStringRequestHandler(tornado.web.RequestHandler):
     def get(self):

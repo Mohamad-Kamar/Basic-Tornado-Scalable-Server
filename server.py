@@ -15,7 +15,7 @@ class Application(tornado.web.Application):
             (r"/exec/([a-zA-Z0-9]+)", pikaRequestHandler),
             (r"/blog", staticRequestHandler),
             (r"/isEven", queryStringRequestHandler),
-            (r"/exec/([a-zA-Z0-9]+)", elasticRequestHandler),
+            (r"/elastic/([a-zA-Z0-9]+)", elasticRequestHandler),
         ]
 
         tornado.web.Application.__init__(self, handlers_list)
